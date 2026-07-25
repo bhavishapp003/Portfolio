@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>My Mutual Fund Portfolio</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#f4f6f9;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+
+h1{
+    color:#1976d2;
+}
+
+
+.cards{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    flex:1;
+    min-width:200px;
+    box-shadow:0 3px 10px #ccc;
+}
+
+
+.amount{
+    font-size:25px;
+    color:green;
+}
+
+
+table{
+
+width:100%;
+background:white;
+border-collapse:collapse;
+margin-top:20px;
+
+}
+
+
+th{
+
+background:#1976d2;
+color:white;
+
+}
+
+
+td,th{
+
+padding:12px;
+border:1px solid #ddd;
+
+}
+
+
+.fund{
+
+color:#0066cc;
+cursor:pointer;
+font-weight:bold;
+
+}
+
+
+
+#details{
+
+display:none;
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:12px;
+box-shadow:0 3px 10px #ccc;
+
+}
+
+
+
+button{
+
+background:#1976d2;
+color:white;
+border:0;
+padding:10px 20px;
+border-radius:8px;
+cursor:pointer;
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>📈 My Mutual Fund Portfolio</h1>
+
+
+<div class="cards">
+
+
+<div class="card">
+<h3>Total Invested</h3>
+<div class="amount">₹3,20,000</div>
+</div>
+
+
+<div class="card">
+<h3>Current Value</h3>
+<div class="amount">₹4,05,000</div>
+</div>
+
+
+<div class="card">
+<h3>Total Profit</h3>
+<div class="amount">₹85,000</div>
+</div>
+
+
+</div>
+
+
+
+<h2>My Funds</h2>
+
+
+<table>
+
+<tr>
+<th>Fund Name</th>
+<th>Units</th>
+<th>Current Value</th>
+</tr>
+
+
+<tr>
+
+<td class="fund" onclick="showFund(0)">
+Parag Parikh Flexi Cap
+</td>
+
+<td>145.2</td>
+
+<td>₹1,50,000</td>
+
+</tr>
+
+
+<tr>
+
+<td class="fund" onclick="showFund(1)">
+UTI Nifty 50 Index Fund
+</td>
+
+<td>210.4</td>
+
+<td>₹95,000</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="fund" onclick="showFund(2)">
+ICICI Bluechip Fund
+</td>
+
+<td>98.5</td>
+
+<td>₹67,500</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="fund" onclick="showFund(3)">
+SBI Small Cap Fund
+</td>
+
+<td>120</td>
+
+<td>₹92,000</td>
+
+</tr>
+
+
+</table>
+
+
+
+<div id="details">
+
+<h2 id="fundName"></h2>
+
+<p id="fundData"></p>
+
+
+<button onclick="closeDetails()">
+Close
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+let funds=[
+
+
+{
+name:"Parag Parikh Flexi Cap",
+invested:"₹1,20,000",
+value:"₹1,50,000",
+units:"145.2",
+profit:"₹30,000",
+return:"25%",
+date:"10-Jan-2024"
+},
+
+
+{
+name:"UTI Nifty 50 Index Fund",
+invested:"₹80,000",
+value:"₹95,000",
+units:"210.4",
+profit:"₹15,000",
+return:"18%",
+date:"15-Feb-2024"
+},
+
+
+{
+name:"ICICI Bluechip Fund",
+invested:"₹50,000",
+value:"₹67,500",
+units:"98.5",
+profit:"₹17,500",
+return:"35%",
+date:"20-Mar-2024"
+},
+
+
+{
+name:"SBI Small Cap Fund",
+invested:"₹70,000",
+value:"₹92,000",
+units:"120",
+profit:"₹22,000",
+return:"31%",
+date:"05-Apr-2024"
+}
+
+
+];
+
+
+
+function showFund(i){
+
+
+let f=funds[i];
+
+
+document.getElementById("fundName").innerHTML=f.name;
+
+
+document.getElementById("fundData").innerHTML=`
+
+<b>Purchase Date:</b> ${f.date}<br><br>
+
+<b>Invested Amount:</b> ${f.invested}<br><br>
+
+<b>Current Value:</b> ${f.value}<br><br>
+
+<b>Units:</b> ${f.units}<br><br>
+
+<b>Profit:</b> ${f.profit}<br><br>
+
+<b>Return:</b> ${f.return}
+
+`;
+
+
+document.getElementById("details").style.display="block";
+
+
+}
+
+
+
+function closeDetails(){
+
+document.getElementById("details").style.display="none";
+
+}
+
+
+</script>
+
+
+</body>
+</html>
